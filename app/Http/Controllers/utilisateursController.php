@@ -22,6 +22,7 @@ class utilisateursController extends Controller
                                 ->join('t_profils', 't_profils.r_i','=','t_utilisateurs.r_profil')
                                 ->select('t_utilisateurs.r_i','t_utilisateurs.r_login','t_utilisateurs.r_status',
                                 't_personnels.r_nom','t_personnels.r_prenoms','t_profils.r_code_profil','t_profils.r_libelle as profil')
+                                ->whereNotIn('t_personnels.r_editeur', [1])
                                 ->get();
         $datas = [
             '_status'   => 1,

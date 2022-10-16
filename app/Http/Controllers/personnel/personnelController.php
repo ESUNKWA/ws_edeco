@@ -22,6 +22,7 @@ class personnelController extends Controller
         ->join('t_fonctions', 't_fonctions.r_i','=','t_personnels.r_fonction')
         ->join('t_communes', 't_communes.r_i','=','t_personnels.r_quatier')
         ->select('t_personnels.*','t_communes.r_libelle as domicile','t_fonctions.r_libelle as fonction')
+        ->whereNotIn('t_personnels.r_editeur', [1])
         ->get();
         $datas = [
         '_status'   => 1,

@@ -64,7 +64,7 @@ class authController extends Controller
              $login = Utilisateurs::join('t_personnels','t_personnels.r_i', '=','t_utilisateurs.r_personnel')
                                ->join('t_profils','t_profils.r_i', '=','t_utilisateurs.r_profil')
                                ->select('t_utilisateurs.r_i','t_utilisateurs.r_login','t_personnels.r_nom','t_personnels.r_prenoms','t_personnels.r_contact','t_profils.r_libelle as profil','t_profils.r_code_profil','t_utilisateurs.password')
-                               ->where('r_login', $request->p_login)
+                               ->where('r_login', '225'.$request->p_login)
                                ->first();
 
             if (!$login) {
@@ -73,9 +73,9 @@ class authController extends Controller
 
             // Vérifier si l'utilisateur est déjà connecté
 
-            $isUserConnect = isUserConnect::where('tokenable_id', $login->r_i)->first();
+            //$isUserConnect = isUserConnect::where('tokenable_id', $login->r_i)->first();
 
-            if( !$isUserConnect ){
+            //if( !$isUserConnect ){
 
                 if( Hash::check($request->p_mdp, $login->password) ){
 
@@ -94,9 +94,9 @@ class authController extends Controller
                     //return response()->json(['_status'=>0, '_result'=>'Login ou Mot de passe incorrecte !']);
                 }
 
-            }
+            //}
 
-            return response()->json(['_status'=>0, '_result'=>'Utilisateur dejà connecté  !!!']);
+            //return response()->json(['_status'=>0, '_result'=>'Utilisateur dejà connecté  !!!']);
 
         } catch (\Throwable $e) {
             return $e->getMessage();

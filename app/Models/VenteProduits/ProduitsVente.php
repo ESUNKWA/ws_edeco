@@ -15,6 +15,7 @@ class ProduitsVente extends Model
         'r_prix_vente',
         'r_description',
         'r_creer_par',
-        'r_modifier_par'
+        'r_modifier_par',
+        'path_name'
     ];
 }

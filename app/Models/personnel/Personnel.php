@@ -22,6 +22,7 @@ class Personnel extends Model
         'r_quatier',
         'r_fonction',
         'r_description',
-        'r_utilisateur'
+        'r_utilisateur',
+        'r_editeur'
     ];
 }

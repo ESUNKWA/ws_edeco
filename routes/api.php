@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
     Route::get('ventes_par_periode/{datedebut}/{datefin}', [VenteProduitController::class, 'ventes_par_periode']);
     Route::get('details_ventes/{idvente}', [VenteProduitController::class, 'details_ventes']);
+    Route::post('updated', [ProduitVenteController::class, 'updated']);
 
 
     Route::resources([

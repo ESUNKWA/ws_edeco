@@ -10,9 +10,11 @@ class VenteProduits extends Model
     use HasFactory;
     protected $table = 't_ventes';
     protected $fillable = [
+        'r_client',
         'r_reference',
         'r_mnt_total',
         'r_creer_par',
-        'r_modifier_par'
+        'r_modifier_par',
+        'path_name'
     ];
 }
